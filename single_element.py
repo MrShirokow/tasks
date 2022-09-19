@@ -27,6 +27,7 @@ def main():
     data = [1, 2, 3, 4, 5, 6, 5, 2, 7, 3, 1, 4, 6]
     assert find_single_element(data) == 7
     assert find_single_xor(data) == 7
+    print('Successfully!')
 
 
 if __name__ == '__main__':

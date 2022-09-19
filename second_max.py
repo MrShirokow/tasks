@@ -24,7 +24,7 @@ def main():
     assert result is None, f'Wrong {result}'
     result = find_second_max([])
     assert result is None, f'Wrong {result}'
-    print('Succesfully!')
+    print('Successfully!')
 
 
 if __name__ == '__main__':
