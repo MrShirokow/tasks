@@ -9,7 +9,9 @@ from collections import Counter
 
 
 def get_unique_elements(numbers: list[int], m: int) -> list:
-    unique_elements = [e[0] for e in Counter(numbers).items() if e[1] == 1 and e[0] > m]
+    unique_elements = [
+        counter[0] for counter in Counter(numbers).items() if counter[1] == 1 and counter[0] > m
+    ]
     return unique_elements
 
 
