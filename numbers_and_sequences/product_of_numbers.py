@@ -9,9 +9,6 @@
 '''
 
 
-from tkinter.tix import Tree
-
-
 n = int(input())
 numbers = tuple(map(int, (input() for _ in range(n))))
 product = int(input())
