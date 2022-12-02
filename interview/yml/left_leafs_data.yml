@@ -1,0 +1,80 @@
+- root:
+    left: null
+    right: null
+  count: 0
+
+- root:
+    left:
+      left: null
+      right: null
+    right:
+      left:
+        left: null
+        right: null
+      right: null
+  count: 2
+
+- root:
+    left:
+      left: null
+      right: null
+    right:
+      left:
+        left: null
+        right: null
+      right:
+        left:
+          left: null
+          right: null
+        right: null
+  count: 3
+
+- root:
+    left:
+      left:
+        left: null
+        right:
+          left:
+            left: null
+            right: null
+          right: null
+      right: null
+    right:
+      left:
+        left: null
+        right: null
+      right:
+        left:
+          left: null
+          right: null
+        right: null
+  count: 3
+
+- root:
+    left:
+      left:
+        left:
+          left:
+            left: null
+            right: null
+          right: null
+        right: null
+      right:
+        left:
+          left: null
+          right: null
+        right:
+          left:
+            left: null
+            right: null
+          right: null
+    right:
+      left: null
+      right:
+        left: null
+        right: 
+          left:
+            left: null
+            right: null
+          right: null
+  count: 4
