@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import yaml
+import pathlib
 
 from enum import Enum
 from typing import Optional
@@ -43,7 +44,8 @@ def is_symmetric(root: Node) -> bool:
 
 
 def main():
-    with open('data.yml') as f:
+    base_dir = pathlib.Path(__file__).parent
+    with open(base_dir.joinpath('yml/symmetric_tree_data.yml')) as f:
         data = yaml.safe_load(f)
     for test in data:
         root = from_dict(data_class=Node, data=test['root'])
