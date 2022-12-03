@@ -1,6 +1,6 @@
 """
 Написать функцию, которая считает количество левых листьев в бинарном дереве.
-Листом считается узел, у которого нет детей. Левый - значит в него пришли по невой ветке из родителя.
+Листом считается узел, у которого нет детей. Левый лист - узел, в который пришли по левой ветке из родителя.
 """
 
 from __future__ import annotations
@@ -28,7 +28,7 @@ class Direction(Enum):
 def calculate_left_leafs(root: Node) -> int:
     count = 0
 
-    def _calculate_left_leafs(direction: Optional[Direction], node: Node, count: int):
+    def _calculate_left_leafs(direction: Optional[Direction], node: Node, count: int) -> int:
         if not node:
             return count
         if not node.left and not node.right and direction == Direction.left:
