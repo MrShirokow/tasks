@@ -49,6 +49,8 @@ class Solution:
     temp.next = 1 (7 -> 1)
     odd.next = 7 (6 -> 7)
     odd, even = 7, None
+
+head = [2, 3, 6, 7, 1, 5, 4]
 '''
 
 if __name__ == '__main__':
