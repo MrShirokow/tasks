@@ -7,13 +7,24 @@ import random
 from typing import List
 
 
-"""
-This is Master's API interface.
-You should not implement it, or speculate about its implementation
-"""
+class AllowGuessesLimitException(Exception):
+    pass
+
+
 class Master:
+    def __init__(self, words: List[str], allowedGuesses=10):
+        self._words = words
+        self._allowedGuesses = allowedGuesses
+        self._secret_word = random.choice(words)
+
     def guess(self, word: str) -> int:
-        pass
+        self._is_finish()
+        self._allowedGuesses -= 1
+        return len([True for x, y in zip(word, self._secret_word) if x == y])
+    
+    def _is_finish(self) -> None:
+        if self._allowedGuesses < 1:
+            raise AllowGuessesLimitException('Number of attempts exceeded')
 
 
 class Solution:
@@ -30,6 +41,7 @@ class Solution:
             words
         ))
         self.findSecretWord(words, master)
+
     
     @staticmethod
     def count_match(s1: str, s2: str) -> int:
@@ -38,4 +50,12 @@ class Solution:
 
 if __name__ == '__main__':
     solution = Solution()
+    words = ["acckzz","ccbazz","eiowzz","abcczz", "vbhdte", "ertyui", "oleujh", "poasvq", "vbngre", "asdasf", "fghmaa"]
+    master = Master(words)
+    solution.findSecretWord(words, master)
+    master = Master(words, 2)
+    try:
+        solution.findSecretWord(words, master)
+    except AllowGuessesLimitException as e:
+        print(f'\n{e}')
     print('\nTests done\n')
