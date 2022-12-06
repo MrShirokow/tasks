@@ -42,7 +42,6 @@ class Solution:
         ))
         self.findSecretWord(words, master)
 
-    
     @staticmethod
     def count_match(s1: str, s2: str) -> int:
         return len([True for x, y in zip(s1, s2) if x == y])

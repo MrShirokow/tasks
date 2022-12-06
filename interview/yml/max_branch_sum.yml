@@ -4,6 +4,7 @@
     right: null
 
   verdict: 7
+  summ: 7
 
 - root:
     value: 7
@@ -14,6 +15,7 @@
       right: null
 
   verdict: 15
+  summ: 8
 
 - root:
     value: 7
@@ -27,6 +29,7 @@
       right: null
 
   verdict: 15
+  summ: 14
 
 - root:
     value: 7
@@ -43,6 +46,7 @@
       right: null
 
   verdict: 22
+  summ: 17
 
 - root:
     value: 7
@@ -74,6 +78,7 @@
         right: null
 
   verdict: 29
+  summ: 10
 
 - root:
     value: 7
@@ -237,3 +242,4 @@
         right: null
 
   verdict: 66
+  summ: 115
