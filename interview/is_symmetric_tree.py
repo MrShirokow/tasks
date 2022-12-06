@@ -22,7 +22,7 @@ class Direction(Enum):
 
 
 def is_symmetric(root: Node) -> bool:
-    def _is_symmetric(left: Node, l_dir: str, right: Node, r_dir: str) -> bool:
+    def _is_symmetric(left: Optional[Node], l_dir: str, right: Optional[Node], r_dir: str) -> bool:
         if l_dir == r_dir:
             return False
         if left is None and right is None:

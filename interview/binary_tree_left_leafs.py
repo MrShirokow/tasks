@@ -28,7 +28,7 @@ class Direction(Enum):
 def calculate_left_leafs(root: Node) -> int:
     count = 0
 
-    def _calculate_left_leafs(direction: Optional[Direction], node: Node, count: int) -> int:
+    def _calculate_left_leafs(direction: Optional[Direction], node: Optional[Node], count: int) -> int:
         if not node:
             return count
         if not node.left and not node.right and direction == Direction.left:
