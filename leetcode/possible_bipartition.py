@@ -23,10 +23,7 @@ class Solution:
             if colors[node - 1] != -1:
                 return colors[node - 1] == color
             colors[node - 1] = color
-            for n in graph[node]:
-                if not self.isBipartite(n, 1 - color, graph, colors):
-                    return False
-            return True
+            return all(self.isBipartite(n, 1 - color, graph, colors) for n in graph[node])
 
 
 if __name__ == '__main__':
