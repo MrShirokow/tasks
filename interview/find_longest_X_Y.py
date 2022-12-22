@@ -3,6 +3,7 @@
 которая состоит из троек X*Y, где * - один любой символ.'''
 
 import re
+import pytest
 
 
 def find_longest(s: str) -> int:
@@ -23,16 +24,25 @@ def find_longest(s: str) -> int:
 
 
 def expected(s: str) -> int:
-    matches = [m.group(1) for m in re.finditer(r'(?=((X.Y)+))', s)]
+    matches = [
+        match.group(1) for match in re.finditer(r'(?=((X.Y)+))', s)
+    ]
     longest = '' if not matches else max(matches, key=len)
     return len(longest) // 3
 
 
-assert find_longest('XXYXXY') == expected('XXYXXY')
-assert find_longest('XXYYXXYXZY') == expected('XXYYXXYXZY')
-assert find_longest('XXX') == expected('XXX')
-assert find_longest('XXXYY') == expected('XXXYY')
-assert find_longest('XXXYYYZZZ') == expected('XXXYYYZZZ')
-assert find_longest('ZYXZYXXYXYYXZYXYYXXY') == expected('ZYXZYXXYXYYXZYXYYXXY')
-assert find_longest('XXYYXXY') == expected('XXYYXXY')
-assert find_longest('XXYYXXYZXYYXZYXXY') == expected('XXYYXXYZXYYXZYXXY')
+@pytest.mark.parametrize(
+    ('s'),
+    (
+        'XXYXXY',
+        'XXYYXXYXZY',
+        'XXX',
+        'XXXYY',
+        'XXXYYYZZZ',
+        'ZYXZYXXYXYYXZYXYYXXY',
+        'XXYYXXY',
+        'XXYYXXYZXYYXZYXXY'
+    )
+)
+def test_find_longest(s):
+    assert find_longest(s) == expected(s)
