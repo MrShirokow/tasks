@@ -19,8 +19,10 @@ def check_coordinates_intersect(left1: int, right2: int, top1: int, bottom2: int
 
 
 def are_intersect(r1: Rectangle, r2: Rectangle) -> bool:
-    return check_coordinates_intersect(r1.left, r2.right, r1.top, r2.bottom) and \
-           check_coordinates_intersect(r2.left, r1.right, r2.top, r1.bottom)
+    return (
+        check_coordinates_intersect(r1.left, r2.right, r1.top, r2.bottom) and 
+        check_coordinates_intersect(r2.left, r1.right, r2.top, r1.bottom)
+    )
 
 
 def fill_counters(rectangles):
