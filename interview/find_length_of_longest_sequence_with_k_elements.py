@@ -2,19 +2,21 @@ from typing import Iterable
 from collections import OrderedDict
 
 
-def find_length_of_longest_sequence(chars: Iterable, k: int) -> int:
-    right_indexes = {}
+def find_length_of_longest_sequence(chars: Iterable, k: int)-> int:
+    right_indexes = OrderedDict()
     left_index = -1
     max_length = count = 0
 
     for index, char in enumerate(chars):
         if char not in right_indexes:
             count += 1
+        else:
+            right_indexes.pop(char)
         right_indexes[char] = index
         if count <= k:
             max_length = max(max_length, index - left_index)
         else:
-            excess_char = min(right_indexes, key=right_indexes.get)
+            excess_char = next(iter(right_indexes.keys()))
             left_index = right_indexes[excess_char]
             right_indexes.pop(excess_char)
             count -= 1
